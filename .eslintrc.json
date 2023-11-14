@@ -1,0 +1,22 @@
+{
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["json", "prettier"],
+  "rules": {
+    "json/json": "error",
+    "prettier/prettier": "error",
+    "camelcase": "error",
+    "eqeqeq": "error",
+    "indent": ["error", 2],
+    "semi": "error",
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "linebreak-style": ["error", "unix"],
+    "max-len": ["error", { "code": 80, "tabWidth": 2 }],
+    "spaced-comment": ["error", "always"],
+    "newline-before-return": "error",
+    "arrow-parens": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "off"
+  }
+}

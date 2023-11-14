@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,66 +15,63 @@
       }
       p {
         text-align: right;
-  width: 80%;
+        width: 80%;
       }
-      i{
+      i {
         cursor: pointer;
       }
-   h2{
-    text-align: center;
-    width: 100%;
-   }
+      h2 {
+        text-align: center;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
-    
     <div class="main">
       <ul class="ulsave" style="width: 100%"></ul>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const ulsave = document.querySelector(".ulsave");
-  
+      document.addEventListener('DOMContentLoaded', function () {
+        const ulsave = document.querySelector('.ulsave')
+
         function updateLocalStorage() {
-          const saves = JSON.parse(localStorage.getItem("save")) || [];
-          ulsave.innerHTML = ''; // Clear the existing list
-  
+          const saves = JSON.parse(localStorage.getItem('save')) || []
+          ulsave.innerHTML = '' // Clear the existing list
+
           saves.forEach((entry, index) => {
-            const lilist = document.createElement("li");
+            const lilist = document.createElement('li')
             lilist.innerHTML = `
               ${entry.word}
               <p>${entry.description}</p>
               <i>Delete</i>
-            `;
-  
-            const pElement = lilist.querySelector("p");
-            const icon = lilist.querySelector("i");
-            icon.style.backgroundColor="red"
-            icon.style.borderRadius="50px"
-            icon.style.padding="10px"
-  
-            pElement.addEventListener("click", () => {
-              pElement.classList.add("someClass"); // Add your logic here
-            });
-  
-            icon.addEventListener("click", () => {
+            `
+
+            const pElement = lilist.querySelector('p')
+            const icon = lilist.querySelector('i')
+            icon.style.backgroundColor = 'red'
+            icon.style.borderRadius = '50px'
+            icon.style.padding = '10px'
+
+            pElement.addEventListener('click', () => {
+              pElement.classList.add('someClass') // Add your logic here
+            })
+
+            icon.addEventListener('click', () => {
               // Remove the item from the DOM
-              lilist.remove();
-  
+              lilist.remove()
+
               // Remove the item from localStorage
-              saves.splice(index, 1);
-              localStorage.setItem("save", JSON.stringify(saves));
-            });
-  
-            ulsave.appendChild(lilist);
-          });
+              saves.splice(index, 1)
+              localStorage.setItem('save', JSON.stringify(saves))
+            })
+
+            ulsave.appendChild(lilist)
+          })
         }
-  
-        updateLocalStorage(); // Initial update
-        setInterval(updateLocalStorage, 1000); // Periodic update every 1 second
-      });
+
+        updateLocalStorage() // Initial update
+        setInterval(updateLocalStorage, 1000) // Periodic update every 1 second
+      })
     </script>
-  </body>
-  </html>
   </body>
 </html>
